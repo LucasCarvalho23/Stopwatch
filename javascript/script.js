@@ -1,6 +1,4 @@
 // Dec to var
-let stopwatch = document.querySelector ("#stopwatch")
-
 let hours = document.querySelector ("#hours")
 let minutes = document.querySelector ("#minutes")
 let seconds = document.querySelector ("#seconds")
