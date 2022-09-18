@@ -38,7 +38,7 @@ class Stopwatch {
                 this.btn3.click();
             }
         });
-        
+
 
         // Initial State
         this.startButton = true
@@ -128,4 +128,4 @@ class Stopwatch {
 
 }
 
-let stopwatch = new Stopwatch()
+const stopwatch = new Stopwatch()
