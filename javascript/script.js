@@ -1,83 +1,97 @@
-// Dec to var
-let hours = document.querySelector ("#hours")
-let minutes = document.querySelector ("#minutes")
-let seconds = document.querySelector ("#seconds")
-let milisec = document.querySelector ("#milisec")
+class Stopwatch {
 
+    constructor () {
+        this.hours = document.querySelector ("#hours")
+        this.minutes = document.querySelector ("#minutes")
+        this.seconds = document.querySelector ("#seconds")
+        this.milisec = document.querySelector ("#milisec") 
+        
+        this.start = document.querySelector ("#start")
+        this.pause = document.querySelector ("#pause")
+        this.reset = document.querySelector ("#reset")
+        
 
-// Initial State
-firstIni()
+        // Event Click
+        this.start.addEventListener ("click", () => this.startBtn())
+        this.pause.addEventListener ("click", () => this.pauseBtn())
+        this.reset.addEventListener ("click", () => this.resetBtn())
 
-
-/* 
-    Start the stopwatch: Used "setInterval" em 10 miliseconds to increment the clock. Used "If" to each 60 milisec, 60 sec or 60 min increment 1 sec, 1 min or 1 hour.
-*/
-function start() {
-    firstIni()
-    stopwatchInterval()
-}
-
-
-// Pause the stopwatch
-function pause() {
-    clearInterval(this.interval)
-}
-
-
-// Reset the stopwatch
-function reset() {
-    clearInterval(this.interval)
-    firstIni()
-}
-
-
-
-// Initial State
-function firstIni() {
-    hours.innerHTML = `00`
-    minutes.innerHTML = `00`
-    seconds.innerHTML = `00`
-    milisec.innerHTML = `00`
-    this.milisec = 0
-    this.seconds = 0
-    this.minutes = 0
-    this.hours = 0
-}
-
-
-// Put two digits in stopwatch
-function twoDigits(digit) {
-    if (digit < 10) {
-        return '0' + digit
-    } else {
-        return digit
+        // Initial State
+        this.firstIni()
     }
-}
 
 
-// Logic to stopwatch
-function makeHours() {
-    if (this.milisec == 60) {
+    // Initial State
+    firstIni() {
+        hours.innerHTML = `00`
+        minutes.innerHTML = `00`
+        seconds.innerHTML = `00`
+        milisec.innerHTML = `00`
         this.milisec = 0
-        this.seconds++
-        seconds.innerHTML = twoDigits(this.seconds)
-    } else if (this.seconds == 60) {
         this.seconds = 0
-        this.minutes++
-        minutes.innerHTML = twoDigits(this.minutes)
-    } else if (this.minutes == 60) {
         this.minutes = 0
-        this.hours++
-        hours.innerHTML = twoDigits(this.hours)
+        this.hours = 0
     }
-}
 
 
-// Call to the stopwatch
-function stopwatchInterval() {
-    this.interval = setInterval(() => {
-        this.milisec++
-        milisec.innerHTML = twoDigits(this.milisec)
-        makeHours()
-    }, 10);
+    // Button Start
+    startBtn() {
+        this.firstIni()
+        this.stopWatchInterval()         
+    }
+
+
+    // Button Pause
+    pauseBtn() {
+        clearInterval(this.interval)
+    }
+
+
+    // Button Reset
+    resetBtn() {
+        clearInterval(this.interval)
+        this.firstIni()
+    }
+
+
+    // Call to the Stopwatch() the each 10 milisec.
+    stopWatchInterval() {
+        this.interval = setInterval(() => {
+            this.milisec++
+            milisec.innerHTML = this.twoDigits(this.milisec)
+            this.makeHours()
+        }, 10);
+    } 
+
+
+    // Logic to calc the stopwatch
+    makeHours() {
+        if (this.milisec == 60) {
+            this.milisec = 0
+            this.seconds++
+            seconds.innerHTML = this.twoDigits(this.seconds)
+        } else if (this.seconds == 60) {
+            this.seconds = 0
+            this.minutes++
+            minutes.innerHTML = this.twoDigits(this.minutes)
+        } else if (this.minutes == 60) {
+            this.minutes = 0
+            this.hours++
+            hours.innerHTML = this.twoDigits(this.hours)
+        
+        }
+    }
+
+
+    // Put two digits in numbers with one digit
+    twoDigits(digit) {
+        if (digit < 10) {
+            return '0' + digit
+        } else {
+            return digit
+        }
+    }
+
 }
+
+let stopwatch = new Stopwatch()
