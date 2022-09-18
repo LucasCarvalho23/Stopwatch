@@ -16,7 +16,32 @@ class Stopwatch {
         this.pause.addEventListener ("click", () => this.pauseBtn())
         this.reset.addEventListener ("click", () => this.resetBtn())
 
+
+        // Interação do teclado com os botões
+        document.addEventListener("keypress", function(e) {
+            if(e.key === 'a') {
+                this.btn = document.querySelector("#start")
+                this.btn.click();
+            }
+        });
+
+        document.addEventListener("keypress", function(f) {
+            if(f.key === 's') {
+                this.btn2 = document.querySelector("#pause")
+                this.btn2.click();
+            }
+        });
+
+        document.addEventListener("keypress", function(g) {
+            if(g.key === 'd') {
+                this.btn3 = document.querySelector("#reset")
+                this.btn3.click();
+            }
+        });
+        
+
         // Initial State
+        this.startButton = true
         this.firstIni()
     }
 
@@ -36,20 +61,27 @@ class Stopwatch {
 
     // Button Start
     startBtn() {
-        this.firstIni()
-        this.stopWatchInterval()         
+        // Don't duplicate the start
+        if (this.startButton == true) {
+            this.startButton = false 
+            this.stopWatchInterval()       
+        } else {
+            alert ('You already started the stopwatch.')
+        }
     }
 
 
     // Button Pause
     pauseBtn() {
         clearInterval(this.interval)
+        this.startButton = true 
     }
 
 
     // Button Reset
     resetBtn() {
         clearInterval(this.interval)
+        this.startButton = true 
         this.firstIni()
     }
 
@@ -66,6 +98,7 @@ class Stopwatch {
 
     // Logic to calc the stopwatch
     makeHours() {
+
         if (this.milisec == 60) {
             this.milisec = 0
             this.seconds++
@@ -85,6 +118,7 @@ class Stopwatch {
 
     // Put two digits in numbers with one digit
     twoDigits(digit) {
+        
         if (digit < 10) {
             return '0' + digit
         } else {
