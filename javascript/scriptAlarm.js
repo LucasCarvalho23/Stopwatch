@@ -1,4 +1,4 @@
-class Alarm {
+export default class Alarm {
 
     constructor() {
         this.hoursAlarm = document.querySelector ("#hoursAlarm")
@@ -22,9 +22,9 @@ class Alarm {
             this.secondsAlarm = this.now.getSeconds()
 
 
-            // US Mode
+            // US Mode (true) or Br Mode (false)
+            this.validatorHour = true   
             this.hoursAlarm = this.englishMode()
-
 
             // Hour
             hoursAlarm.innerHTML = this.twoDigits (this.hoursAlarm)
@@ -43,11 +43,15 @@ class Alarm {
 
     // US Mode => Insert AM and PM too
     englishMode() {
-        if (this.hoursAlarm > 12) {
-            this.hoursAlarm = this.hoursAlarm - 12
-            this.ampmAlarm = `PM`
+        if (this.validatorHour == true) {
+            if (this.hoursAlarm > 12) {
+                this.hoursAlarm = this.hoursAlarm - 12
+                this.ampmAlarm = `PM`
+            } else {
+                this.ampmAlarm = `AM`
+            }
         } else {
-            this.ampmAlarm = `AM`
+            this.ampmAlarm = ` `
         }
 
         return this.hoursAlarm
@@ -64,8 +68,12 @@ class Alarm {
         this.datesAlarm = this.dayOfWeek()
         this.abrev = this.abrevDay()
 
-        dateAlarm.innerHTML = `${this.yearAlarm}, ${this.monthAlarm} ${this.dayAlarm}${this.abrev}, ${this.datesAlarm}`
-    }
+        if (this.validatorHour == true) {
+            dateAlarm.innerHTML = `${this.yearAlarm}, ${this.monthAlarm} ${this.dayAlarm}${this.abrev}, ${this.datesAlarm}`
+        } else {
+            dateAlarm.innerHTML = `${this.dayAlarm} de ${this.monthAlarm} de ${this.yearAlarm}. ${this.datesAlarm}`
+        }
+    } 
 
 
     // Define ordinal number
@@ -101,28 +109,58 @@ class Alarm {
         
         this.datesAlarm = this.now.getDay()
 
-        switch (this.datesAlarm) {
-            case 0: 
-                this.datesAlarm = 'Sunday'
-            break
-            case 1: 
-                this.datesAlarm = 'Monday'
-            break
-            case 2: 
-                this.datesAlarm = 'Tuesday'
-            break
-            case 3: 
-                this.datesAlarm = 'Wednesday'
-            break
-            case 4: 
-                this.datesAlarm = 'Thursday'
-            break
-            case 5: 
-                this.datesAlarm = 'Friday'
-            break
-            case 6: 
-                this.datesAlarm = 'Saturday'
-            break
+        if (this.validatorHour == true) {
+
+            switch (this.datesAlarm) {
+                case 0: 
+                    this.datesAlarm = 'Sunday'
+                break
+                case 1: 
+                    this.datesAlarm = 'Monday'
+                break
+                case 2: 
+                    this.datesAlarm = 'Tuesday'
+                break
+                case 3: 
+                    this.datesAlarm = 'Wednesday'
+                break
+                case 4: 
+                    this.datesAlarm = 'Thursday'
+                break
+                case 5: 
+                    this.datesAlarm = 'Friday'
+                break
+                case 6: 
+                    this.datesAlarm = 'Saturday'
+                break
+            }
+
+        } else {
+
+            switch (this.datesAlarm) {
+                case 0: 
+                    this.datesAlarm = 'Domingo'
+                break
+                case 1: 
+                    this.datesAlarm = 'Segunda-feira'
+                break
+                case 2: 
+                    this.datesAlarm = 'Terça-feira'
+                break
+                case 3: 
+                    this.datesAlarm = 'Quarta-feira'
+                break
+                case 4: 
+                    this.datesAlarm = 'Quinta-feira'
+                break
+                case 5: 
+                    this.datesAlarm = 'Sexta-feira'
+                break
+                case 6: 
+                    this.datesAlarm = 'Sábado'
+                break
+            }
+
         }
 
         return this.datesAlarm
@@ -131,44 +169,89 @@ class Alarm {
 
     // Calc mounth of year
     monthOfYear() {
+        
+        if (this.validatorHour == true) {
 
-        switch (this.monthAlarm) {
-            case 0: 
-                this.monthAlarm = 'January'
-            break
-            case 1: 
-                this.monthAlarm = 'February'
-            break
-            case 2: 
-                this.monthAlarm = 'March'
-            break
-            case 3: 
-                this.monthAlarm = 'April'
-            break
-            case 4: 
-                this.monthAlarm = 'May'
-            break
-            case 5: 
-                this.monthAlarm = 'June'
-            break
-            case 6: 
-                this.monthAlarm = 'July'
-            break
-            case 7: 
-                this.monthAlarm = 'August'
-            break
-            case 8: 
-                this.monthAlarm = 'September'
-            break
-            case 9: 
-                this.monthAlarm = 'October'
-            break
-            case 10: 
-                this.monthAlarm = 'November'
-            break
-            case 11: 
-                this.monthAlarm = 'December'
-            break
+            switch (this.monthAlarm) {
+                case 0: 
+                    this.monthAlarm = 'January'
+                break
+                case 1: 
+                    this.monthAlarm = 'February'
+                break
+                case 2: 
+                    this.monthAlarm = 'March'
+                break
+                case 3: 
+                    this.monthAlarm = 'April'
+                break
+                case 4: 
+                    this.monthAlarm = 'May'
+                break
+                case 5: 
+                    this.monthAlarm = 'June'
+                break
+                case 6: 
+                    this.monthAlarm = 'July'
+                break
+                case 7: 
+                    this.monthAlarm = 'August'
+                break
+                case 8: 
+                    this.monthAlarm = 'September'
+                break
+                case 9: 
+                    this.monthAlarm = 'October'
+                break
+                case 10: 
+                    this.monthAlarm = 'November'
+                break
+                case 11: 
+                    this.monthAlarm = 'December'
+                break
+            }
+
+        } else {
+
+            switch (this.monthAlarm) {
+                case 0: 
+                    this.monthAlarm = 'Janeiro'
+                break
+                case 1: 
+                    this.monthAlarm = 'Fevereiro'
+                break
+                case 2: 
+                    this.monthAlarm = 'Março'
+                break
+                case 3: 
+                    this.monthAlarm = 'Abril'
+                break
+                case 4: 
+                    this.monthAlarm = 'Maio'
+                break
+                case 5: 
+                    this.monthAlarm = 'Junho'
+                break
+                case 6: 
+                    this.monthAlarm = 'Julho'
+                break
+                case 7: 
+                    this.monthAlarm = 'Agosto'
+                break
+                case 8: 
+                    this.monthAlarm = 'Setembro'
+                break
+                case 9: 
+                    this.monthAlarm = 'Outubro'
+                break
+                case 10: 
+                    this.monthAlarm = 'Novembro'
+                break
+                case 11: 
+                    this.monthAlarm = 'Dezembro'
+                break
+            }
+
         }
 
         return this.monthAlarm
