@@ -6,6 +6,15 @@ export default class Alarm {
         this.secondsAlarm = document.querySelector ("#secondsAlarm")
         this.ampmAlarm = document.querySelector ("#ampmAlarm")
         this.dateAlarm = document.querySelector ("#dateAlarm")
+        this.changeLanguage = document.querySelector ("#changeLanguage")
+
+
+        //Language: true => English // false => Portuguese
+        this.validatorHour = true
+
+
+        // Event Click
+        this.changeLanguage.addEventListener ("click", () => this.changeBtn() )
 
     }
 
@@ -23,7 +32,6 @@ export default class Alarm {
 
 
             // US Mode (true) or Br Mode (false)
-            this.validatorHour = true   
             this.hoursAlarm = this.englishMode()
 
             // Hour
@@ -100,6 +108,25 @@ export default class Alarm {
             return '0' + digit
         } else {
             return digit
+        }
+    }
+
+
+    // Change language
+    changeBtn() {
+        if (this.validatorHour == false) {
+            this.validatorHour = true    
+        } else {
+            this.validatorHour = false    
+        }
+
+        if (this.validatorHour == true) {
+            // Muda img para btnImg2
+            changeLanguage.src = "../images/btnImg1.png"    
+        } else {
+            // Muda img para btnImg1
+            changeLanguage.src = "../images/btnImg2.png"
+
         }
     }
 

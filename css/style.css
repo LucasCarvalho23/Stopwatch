@@ -98,6 +98,12 @@ abbr {
   transition: background 0.4s;
 }
 
+
+/* Change idiom */
+#changeLanguage {
+  max-width: 50px;
+}
+
 /* Footer */
 footer {
   position: absolute;
