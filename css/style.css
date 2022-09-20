@@ -80,12 +80,14 @@ label {
   border: 2px solid pink;
   background-color: rgb(250, 0, 196);
   color: white;
+  transition: background 0.4s;
 }
 
 #alarmPage a:hover, #stopwatchPage a:hover {
   text-decoration: none;
   background-color: rgb(250, 0, 196);
   color: white;
+  transition: background 0.4s;
 }
 
 #btnAlarm {
@@ -95,9 +97,12 @@ label {
 
 #btnAlarm:hover {
   color: black;
-  background-color: lightgray;
+  background-color: gray;
+  color: white;
+  font-weight: bold;
   border: 2px solid rgb(250, 0, 196);
   margin-left: 20px;
+  transition: background 0.4s;
 }
 
 

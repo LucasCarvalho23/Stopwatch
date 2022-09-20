@@ -8,7 +8,6 @@ class Alarm {
         this.dateAlarm = document.querySelector ("#dateAlarm")
         this.changeLanguage = document.querySelector ("#changeLanguage")
 
-
         //Language: true => English // false => Portuguese
         this.validatorHour = true
 
@@ -17,8 +16,10 @@ class Alarm {
         this.changeLanguage.addEventListener ("click", () => this.changeBtn() )
 
 
-        //Test
-        this.containerAlarm = document.querySelector ("#containerAlarm")
+        // Button active alarm
+        this.btnAlarm = document.querySelector ("#btnAlarm")
+
+        this.btnAlarm.addEventListener ("click", () => this.saveAlarm() )
 
 
         // Create Alarm
@@ -311,9 +312,8 @@ class Alarm {
             this.hourActual = this.now2.getHours()
             this.minuteActual = this.now2.getMinutes()
 
-
-            if ((this.valueh10.value == this.hourActual) &&
-                (this.valuem006.value == this.minuteActual)) {
+            if ((this.valuehFinal1 == this.hourActual) &&
+                (this.valuemFinal1 == this.minuteActual)) {
                     alert ("Wake up!")
             }
 
@@ -348,6 +348,9 @@ class Alarm {
             this.valueh21 = document.querySelector ("#valueh21")
             this.valueh22 = document.querySelector ("#valueh22")
             this.valueh23 = document.querySelector ("#valueh23")
+            
+            this.valuehFinal = this.valueh11.value
+
     }
 
 
@@ -413,6 +416,15 @@ class Alarm {
         this.valuem057 = document.querySelector ("#valuem057")
         this.valuem058 = document.querySelector ("#valuem058")
         this.valuem059 = document.querySelector ("#valuem059")
+
+        this.valuemFinal = this.valuem029.value
+
+    }
+
+    saveAlarm() {
+        this.valuehFinal1 = this.valuehFinal
+        this.valuemFinal1 = this.valuemFinal
+        console.log (this.valuehFinal1, this.valuemFinal1)
     }
 
 }
