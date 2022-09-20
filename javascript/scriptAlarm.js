@@ -15,6 +15,10 @@ class Alarm {
         // Event Click
         this.changeLanguage.addEventListener ("click", () => this.changeBtn() )
 
+
+        //Test
+        
+
     }
 
 
@@ -317,3 +321,13 @@ const alarm = new Alarm()
 
 alarm.rightTime() // Start the watch
 alarm.alertAlarm() // Start the alarm
+
+
+
+/*
+    <select name="hourAlarmF" id="hourAlarmF">
+    <option id = "hour01" value="1">1</option>
+
+    <option id = "minute01" value="1">1</option>
+
+*/
