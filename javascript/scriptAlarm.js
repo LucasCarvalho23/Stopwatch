@@ -8,7 +8,6 @@ class Alarm {
         this.dateAlarm = document.querySelector ("#dateAlarm")
         this.changeLanguage = document.querySelector ("#changeLanguage")
 
-
         //Language: true => English // false => Portuguese
         this.validatorHour = true
 
@@ -24,7 +23,7 @@ class Alarm {
 
         setInterval(() => {
 
-            this.now = new Date()
+            this.now = new Date()                
 
             this.hoursAlarm = this.now.getHours()
             this.minutesAlarm = this.now.getMinutes()
@@ -33,6 +32,7 @@ class Alarm {
 
             // US Mode (true) or Br Mode (false)
             this.hoursAlarm = this.englishMode()
+
 
             // Hour
             hoursAlarm.innerHTML = this.twoDigits (this.hoursAlarm)
@@ -285,7 +285,35 @@ class Alarm {
     }
 
 
+    // Test alarm
+    alertAlarm() {
+        
+        // Test Alarm
+        this.hourChoice = 6
+        this.minutesChoice = 48
+        this.secondsChoice = 20
+        
+        setInterval(() => {
+            
+            this.now2 = new Date()
+
+            this.hourActual = this.now2.getHours()
+            this.minuteActual = this.now2.getMinutes()
+            this.secondActual = this.now2.getSeconds()
+
+            if ((this.hourChoice == this.hourActual) &&
+                (this.minutesChoice == this.minuteActual) &&
+                (this.secondsChoice == this.secondActual)) {
+                    alert ("Wake up!")
+            }
+
+        }, 1000);
+
+    }
+
 }
 
 const alarm = new Alarm()
-alarm.rightTime()
+
+alarm.rightTime() // Start the watch
+alarm.alertAlarm() // Start the alarm
