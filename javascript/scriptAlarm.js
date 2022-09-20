@@ -8,6 +8,7 @@ class Alarm {
         this.dateAlarm = document.querySelector ("#dateAlarm")
         this.changeLanguage = document.querySelector ("#changeLanguage")
 
+
         //Language: true => English // false => Portuguese
         this.validatorHour = true
 
@@ -17,7 +18,15 @@ class Alarm {
 
 
         //Test
-        
+        this.containerAlarm = document.querySelector ("#containerAlarm")
+
+
+        // Create Alarm
+        this.hourAlarmF = document.querySelector ("#hourAlarmF")
+        this.minuteAlarmF = document.querySelector("#minuteAlarmF")
+
+        this.declarationsH()
+        this.declarationsM()
 
     }
 
@@ -121,7 +130,7 @@ class Alarm {
         if (this.validatorHour == false) {
             this.validatorHour = true    
         } else {
-            this.validatorHour = false    
+            this.validatorHour = false   
         }
 
         if (this.validatorHour == true) {
@@ -291,28 +300,119 @@ class Alarm {
 
     // Test alarm
     alertAlarm() {
+
         
+
         // Test Alarm
-        this.hourChoice = 6
-        this.minutesChoice = 48
-        this.secondsChoice = 20
-        
         setInterval(() => {
             
             this.now2 = new Date()
 
             this.hourActual = this.now2.getHours()
             this.minuteActual = this.now2.getMinutes()
-            this.secondActual = this.now2.getSeconds()
 
-            if ((this.hourChoice == this.hourActual) &&
-                (this.minutesChoice == this.minuteActual) &&
-                (this.secondsChoice == this.secondActual)) {
+
+            if ((this.valueh10.value == this.hourActual) &&
+                (this.valuem006.value == this.minuteActual)) {
                     alert ("Wake up!")
             }
 
         }, 1000);
+    }
 
+
+    // Declarations of the alarm in hours
+    declarationsH() {
+            this.valueh01 = document.querySelector ("#valueh01")
+            this.valueh02 = document.querySelector ("#valueh02")
+            this.valueh03 = document.querySelector ("#valueh03")
+            this.valueh04 = document.querySelector ("#valueh04")
+            this.valueh05 = document.querySelector ("#valueh05")
+            this.valueh06 = document.querySelector ("#valueh06")
+            this.valueh07 = document.querySelector ("#valueh07")
+            this.valueh08 = document.querySelector ("#valueh08")
+            this.valueh09 = document.querySelector ("#valueh09")
+            this.valueh10 = document.querySelector ("#valueh10")
+            this.valueh11 = document.querySelector ("#valueh11")
+            this.valueh12 = document.querySelector ("#valueh12")
+            this.valueh11 = document.querySelector ("#valueh11")
+            this.valueh12 = document.querySelector ("#valueh12")
+            this.valueh13 = document.querySelector ("#valueh13")
+            this.valueh14 = document.querySelector ("#valueh14")
+            this.valueh15 = document.querySelector ("#valueh15")
+            this.valueh16 = document.querySelector ("#valueh16")
+            this.valueh17 = document.querySelector ("#valueh17")
+            this.valueh18 = document.querySelector ("#valueh18")
+            this.valueh19 = document.querySelector ("#valueh19")
+            this.valueh20 = document.querySelector ("#valueh20")
+            this.valueh21 = document.querySelector ("#valueh21")
+            this.valueh22 = document.querySelector ("#valueh22")
+            this.valueh23 = document.querySelector ("#valueh23")
+    }
+
+
+    // Declarations of the alarm in minutes
+    declarationsM() {
+        this.valuem000 = document.querySelector ("#valuem000")
+        this.valuem001 = document.querySelector ("#valuem001")
+        this.valuem002 = document.querySelector ("#valuem002")
+        this.valuem003 = document.querySelector ("#valuem003")
+        this.valuem004 = document.querySelector ("#valuem004")
+        this.valuem005 = document.querySelector ("#valuem005")
+        this.valuem006 = document.querySelector ("#valuem006")
+        this.valuem007 = document.querySelector ("#valuem007")
+        this.valuem008 = document.querySelector ("#valuem008")
+        this.valuem009 = document.querySelector ("#valuem009")
+        this.valuem010 = document.querySelector ("#valuem010")
+        this.valuem011 = document.querySelector ("#valuem011")
+        this.valuem012 = document.querySelector ("#valuem012")
+        this.valuem013 = document.querySelector ("#valuem013")
+        this.valuem014 = document.querySelector ("#valuem014")
+        this.valuem015 = document.querySelector ("#valuem015")
+        this.valuem016 = document.querySelector ("#valuem016")
+        this.valuem017 = document.querySelector ("#valuem017")
+        this.valuem018 = document.querySelector ("#valuem018")
+        this.valuem019 = document.querySelector ("#valuem019")
+        this.valuem020 = document.querySelector ("#valuem020")
+        this.valuem021 = document.querySelector ("#valuem021")
+        this.valuem022 = document.querySelector ("#valuem022")
+        this.valuem023 = document.querySelector ("#valuem023")
+        this.valuem024 = document.querySelector ("#valuem024")
+        this.valuem025 = document.querySelector ("#valuem025")
+        this.valuem026 = document.querySelector ("#valuem026")
+        this.valuem027 = document.querySelector ("#valuem027")
+        this.valuem028 = document.querySelector ("#valuem028")
+        this.valuem029 = document.querySelector ("#valuem029")
+        this.valuem030 = document.querySelector ("#valuem030")
+        this.valuem031 = document.querySelector ("#valuem031")
+        this.valuem032 = document.querySelector ("#valuem032")
+        this.valuem033 = document.querySelector ("#valuem033")
+        this.valuem034 = document.querySelector ("#valuem034")
+        this.valuem035 = document.querySelector ("#valuem035")
+        this.valuem036 = document.querySelector ("#valuem036")
+        this.valuem037 = document.querySelector ("#valuem037")
+        this.valuem038 = document.querySelector ("#valuem038")
+        this.valuem039 = document.querySelector ("#valuem039")
+        this.valuem040 = document.querySelector ("#valuem040")
+        this.valuem041 = document.querySelector ("#valuem041")
+        this.valuem042 = document.querySelector ("#valuem042")
+        this.valuem043 = document.querySelector ("#valuem043")
+        this.valuem044 = document.querySelector ("#valuem044")
+        this.valuem045 = document.querySelector ("#valuem045")
+        this.valuem046 = document.querySelector ("#valuem046")
+        this.valuem047 = document.querySelector ("#valuem047")
+        this.valuem048 = document.querySelector ("#valuem048")
+        this.valuem049 = document.querySelector ("#valuem049")
+        this.valuem050 = document.querySelector ("#valuem050")
+        this.valuem051 = document.querySelector ("#valuem051")
+        this.valuem052 = document.querySelector ("#valuem052")
+        this.valuem053 = document.querySelector ("#valuem053")
+        this.valuem054 = document.querySelector ("#valuem054")
+        this.valuem055 = document.querySelector ("#valuem055")
+        this.valuem056 = document.querySelector ("#valuem056")
+        this.valuem057 = document.querySelector ("#valuem057")
+        this.valuem058 = document.querySelector ("#valuem058")
+        this.valuem059 = document.querySelector ("#valuem059")
     }
 
 }
@@ -321,13 +421,3 @@ const alarm = new Alarm()
 
 alarm.rightTime() // Start the watch
 alarm.alertAlarm() // Start the alarm
-
-
-
-/*
-    <select name="hourAlarmF" id="hourAlarmF">
-    <option id = "hour01" value="1">1</option>
-
-    <option id = "minute01" value="1">1</option>
-
-*/
