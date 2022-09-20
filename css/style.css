@@ -98,6 +98,31 @@ abbr {
   transition: background 0.4s;
 }
 
+#alarmPage, #stopwatchPage {
+  margin-top: 30px;
+  background-color: pink;
+  color: black;
+  font-weight: bold;
+  border: 2px solid rgb(250, 0, 196);
+}
+
+#alarmPage a, #stopwatchPage a {
+  text-decoration: none;
+  color: black;
+}
+
+#alarmPage:hover, #stopwatchPage:hover {
+  border: 2px solid pink;
+  background-color: rgb(250, 0, 196);
+  color: white;
+}
+
+#alarmPage a:hover, #stopwatchPage a:hover {
+  text-decoration: none;
+  background-color: rgb(250, 0, 196);
+  color: white;
+}
+
 
 /* Change idiom */
 #changeLanguage {

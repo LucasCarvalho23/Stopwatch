@@ -1,4 +1,4 @@
-export default class Alarm {
+class Alarm {
 
     constructor() {
         this.hoursAlarm = document.querySelector ("#hoursAlarm")
